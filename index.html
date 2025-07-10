@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Yuzu0dev</title>
+    <link rel="icon" type="image/png"
+        href="https://cdn.discordapp.com/attachments/1385538629887328296/1392849753007722526/telechargement_15.jpg?ex=687107eb&is=686fb66b&hm=36c44baab4c78904c36e1642279f9f0aeaf95acf9211fd5294b4b1b5bd6c9126&" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="profile">
+            <img id="profileImage" src="" alt="Photo de profil">
+        </div>
+        <div class="username">Yuzu x 13nian</div>
+
+        <!-- Bio à la place du bouton -->
+        <p class="bio">
+            osint en islam
+        </p>
+
+        <!-- Nouveau container d'informations -->
+        <div class="info-container">
+            <div class="info-title">Compétences</div>
+            <p class="info-text">
+                Yuzu wola un tigrr
+            </p>
+            <ul class="info-list">
+                <li>troll dans les groupes</li>
+                <li>plus 2 fame ke ta daronne</li>
+                <li>Choquez les e-girl</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        const fullTitle = "Yuzu";
+        let index = 0;
+
+        function typeTitle() {
+            if (index <= fullTitle.length) {
+                document.title = fullTitle.substring(0, index);
+                index++;
+                setTimeout(typeTitle, 200); // vitesse de frappe (200ms par lettre)
+            }
+        }
+
+        typeTitle(); // démarre l'animation
+    </script>
+    <script>
+        fetch('config.json')
+            .then(response => response.json())
+            .then(config => {
+                document.getElementById('profileImage').src = config.image;
+            })
+            .catch(error => {
+                console.error('Erreur lors du chargement de config.json :', error);
+            });
+    </script>
+</body>
+
+</html>
