@@ -16,12 +16,10 @@
         </div>
         <div class="username">Yuzu x 13nian</div>
 
-        <!-- Bio à la place du bouton -->
         <p class="bio">
             osint en islam
         </p>
 
-        <!-- Nouveau container d'informations -->
         <div class="info-container">
             <div class="info-title">Compétences</div>
             <p class="info-text">
@@ -42,11 +40,11 @@
             if (index <= fullTitle.length) {
                 document.title = fullTitle.substring(0, index);
                 index++;
-                setTimeout(typeTitle, 200); // vitesse de frappe (200ms par lettre)
+                setTimeout(typeTitle, 200); 
             }
         }
 
-        typeTitle(); // démarre l'animation
+        typeTitle(); 
     </script>
     <script>
         fetch('config.json')
