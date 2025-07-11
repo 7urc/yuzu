@@ -65,6 +65,24 @@
             document.getElementById('intro').addEventListener('click', () => {
                 document.getElementById('intro').style.display = 'none';
                 document.querySelector('.container').style.display = 'block';
+
+                // Jouer la musique avec fade-in
+                const audio = new Audio('pnl.mp3');
+                audio.volume = 0;
+                audio.play().catch(error => {
+                    console.error('Erreur lors de la lecture de la musique :', error);
+                });
+
+                // Fade-in progressif
+                let volume = 0;
+                const fadeIn = setInterval(() => {
+                    if (volume < 1) {
+                        volume += 0.05;
+                        audio.volume = Math.min(volume, 1);
+                    } else {
+                        clearInterval(fadeIn);
+                    }
+                }, 100);
             });
         </script>
 
