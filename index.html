@@ -3,89 +3,133 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Yuzu0dev</title>
+    <title>Yuzu</title>
     <link rel="icon" type="image/png"
-        href="https://cdn.discordapp.com/attachments/1388494634979819560/1393243700745732231/telechargement__21_-removebg-preview.png?ex=687276cf&is=6871254f&hm=269dd4d38fda765e120e409ee0e4f502d052ee67fe2bc5154630157b52a2a2de&" />
+        href="https://cdn.discordapp.com/attachments/1385538629887328296/1392855791375089695/luvvflesh_instagram_1-modified.png" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!-- Écran d’intro -->
     <div id="intro">
         <div class="intro-text">click to enter</div>
     </div>
 
+    <!-- Bannière texte animé en haut -->
+    <div class="top-banner">
+        <span class="animated-text" id="loopText"></span>
+    </div>
+
+    <!-- Contenu principal caché au début -->
     <div class="container" style="display: none;">
-        <div class="container">
-            <div class="profile">
-                <img id="profileImage" src="" alt="Photo de profil">
-            </div>
-            <div class="username">Yuzu x 13nian</div>
-
-            <p class="bio">
-                osint en islam
-            </p>
-
-            <div class="info-container">
-                <div class="info-title">Compétences</div>
-                <p class="info-text">
-                    Yuzu wola un tigrr
-                </p>
-                <ul class="info-list">
-                    <li>win dans tout les groupes</li>
-                    <li>plus 2 fame ke ta daronne</li>
-                    <li>Choquez les e-girl avec son zgeg</li>
-                </ul>
-            </div>
+        <div class="profile">
+            <img id="profileImage" src="" alt="Photo de profil">
         </div>
-        <script>
-            const fullTitle = "Yuzu";
-            let index = 0;
+        <div class="username">Yuzu x 13nian</div>
 
-            function typeTitle() {
-                if (index <= fullTitle.length) {
-                    document.title = fullTitle.substring(0, index);
-                    index++;
-                    setTimeout(typeTitle, 200);
+        <p class="bio">
+            osint en islam
+        </p>
+
+        <div class="info-container">
+            <div class="info-title">Compétences</div>
+            <p class="info-text">
+                Yuzu wola un tigrr
+            </p>
+            <ul class="info-list">
+                <li>win dans tout les groupes</li>
+                <li>plus 2 fame ke ta daronne</li>
+                <li>Choquez les e-girl avec son zgeg</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Script pour effet titre (Yuzu) -->
+    <script>
+        const fullTitle = "Yuzu";
+        let titleIndex = 0;
+
+        function typeTitle() {
+            if (titleIndex <= fullTitle.length) {
+                document.title = fullTitle.substring(0, titleIndex);
+                titleIndex++;
+                setTimeout(typeTitle, 200);
+            }
+        }
+
+        typeTitle();
+    </script>
+
+    <!-- Chargement image de profil depuis config.json -->
+    <script>
+        fetch('config.json')
+            .then(response => response.json())
+            .then(config => {
+                document.getElementById('profileImage').src = config.image;
+            })
+            .catch(error => {
+                console.error('Erreur lors du chargement de config.json :', error);
+            });
+    </script>
+
+    <!-- Intro + démarrage musique -->
+    <script>
+        document.getElementById('intro').addEventListener('click', () => {
+            document.getElementById('intro').style.display = 'none';
+            document.querySelector('.container').style.display = 'block';
+
+            const audio = new Audio('pnl.mp3');
+            audio.volume = 0;
+            audio.play().catch(error => {
+                console.error('Erreur lors de la lecture de la musique :', error);
+            });
+
+            let volume = 0;
+            const fadeIn = setInterval(() => {
+                if (volume < 1) {
+                    volume += 0.05;
+                    audio.volume = Math.min(volume, 1);
+                } else {
+                    clearInterval(fadeIn);
+                }
+            }, 100);
+        });
+    </script>
+
+    <!-- Texte animé "Pas d'acteur" -->
+    <script>
+        const text = "Le purple en impose pas comme ta lame";
+        const loopText = document.getElementById("loopText");
+        let i = 0;
+        let direction = 1;
+
+        function animateText() {
+            loopText.textContent = text.slice(0, i);
+
+            if (direction === 1) {
+                if (i < text.length) {
+                    i++;
+                    setTimeout(animateText, 150);
+                } else {
+                    direction = -1;
+                    setTimeout(animateText, 2000);
+                }
+            } else {
+                if (i > 0) {
+                    i--;
+                    setTimeout(animateText, 100);
+                } else {
+                    direction = 1;
+                    setTimeout(animateText, 500);
                 }
             }
+        }
 
-            typeTitle(); 
-        </script>
-        <script>
-            fetch('config.json')
-                .then(response => response.json())
-                .then(config => {
-                    document.getElementById('profileImage').src = config.image;
-                })
-                .catch(error => {
-                    console.error('Erreur lors du chargement de config.json :', error);
-                });
-        </script>
-        <script>
-            document.getElementById('intro').addEventListener('click', () => {
-                document.getElementById('intro').style.display = 'none';
-                document.querySelector('.container').style.display = 'block';
-
-              
-                const audio = new Audio('pnl.mp3');
-                audio.volume = 0;
-                audio.play().catch(error => {
-                    console.error('Erreur lors de la lecture de la musique :', error);
-                });
-
-            
-                let volume = 0;
-                const fadeIn = setInterval(() => {
-                    if (volume < 1) {
-                        volume += 0.05;
-                        audio.volume = Math.min(volume, 1);
-                    } else {
-                        clearInterval(fadeIn);
-                    }
-                }, 100);
-            });
-        </script>
-
+        animateText();
+    </script>
 </body>
 
 </html>
