@@ -88,7 +88,28 @@ body {
     line-height: 1.5;
     text-shadow: 0 0 6px rgba(247, 202, 252, 0.4);
     letter-spacing: 0.4px;
+
+    /* Ajout pour centrage */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
+
+.icon-inline {
+    display: flex;
+    align-items: center;
+}
+
+
+.icon-svg {
+    width: 20px;
+    height: 20px;
+    stroke: rgba(249, 249, 249, 0.8);
+    flex-shrink: 0;
+}
+
+
 
 .info-container {
     background: linear-gradient(135deg, rgba(247, 202, 252, 0.1), rgba(247, 202, 252, 0.05));
@@ -244,6 +265,7 @@ body {
         border-color: rgba(255, 255, 255, 0.75);
     }
 }
+
 /* ----- Responsive Mobile ----- */
 @media screen and (max-width: 768px) {
     body {
@@ -299,4 +321,3 @@ body {
         height: 80px;
     }
 }
-
