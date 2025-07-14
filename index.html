@@ -2,49 +2,52 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Yuzu</title>
-<meta property="og:title" content="Yuzu" />
-<meta property="og:description" content="🌷 Peace'haine Lové" />
-<meta property="og:image" content="https://cdn.discordapp.com/attachments/1373291159211868163/1393621187287847002/ec8d78fe-1584-42a1-b36c-c9c8b3cfcf92.jpg?ex=6873d65f&is=687284df&hm=d7f0b344c2615938ac69b4b6025c651bb80cbbcb12a6cfd65bf9e56a8bd680d8&" />
-<meta property="og:url" content="https://7urc.github.io/yuzu/" />
-<meta property="og:type" content="website" />
+    <meta property="og:title" content="Yuzu" />
+    <meta property="og:description" content="🌷 Peace'haine Lové" />
+    <meta property="og:image"
+        content="https://cdn.discordapp.com/attachments/1373291159211868163/1393621187287847002/ec8d78fe-1584-42a1-b36c-c9c8b3cfcf92.jpg?ex=6873d65f&is=687284df&hm=d7f0b344c2615938ac69b4b6025c651bb80cbbcb12a6cfd65bf9e56a8bd680d8&" />
+    <meta property="og:url" content="https://7urc.github.io/yuzu/" />
+    <meta property="og:type" content="website" />
     <link rel="icon" type="image/png"
         href="https://cdn.discordapp.com/attachments/1388494634979819560/1393243700745732231/telechargement__21_-removebg-preview.png?ex=687276cf&is=6871254f&hm=269dd4d38fda765e120e409ee0e4f502d052ee67fe2bc5154630157b52a2a2de&" />
-
-    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
-    
+
     <div id="intro">
         <div class="intro-text">click to enter</div>
     </div>
 
-    
     <div class="top-banner">
         <span class="animated-text" id="loopText"></span>
     </div>
 
-    <!-- le truc pr ntm enft jsp -->
     <div class="container" style="display: none;">
         <div class="profile">
-            <img id="profileImage" src="" alt="Photo de profil">
+            <img id="profileImage" src="" alt="Photo de profil" />
         </div>
+
         <div class="username">Yuzu x 13nian</div>
 
         <p class="bio">
-           I love u ze3ma
+            <span class="icon-inline">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="icon-svg">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+                </svg>
+            </span>
+            I love u ze3ma
         </p>
 
         <div class="info-container">
             <div class="info-title">Compétences</div>
-            <p class="info-text">
-                Yuzu wola un tigrr
-            </p>
+            <p class="info-text">Yuzu wola un tigrr</p>
             <ul class="info-list">
                 <li>win dans tout les groupes</li>
                 <li>plus 2 fame ke ta daronne</li>
@@ -53,7 +56,7 @@
         </div>
     </div>
 
-    <!-- heja de yuzu -->
+    <!-- animation titre -->
     <script>
         const fullTitle = "Yuzu";
         let titleIndex = 0;
@@ -69,7 +72,7 @@
         typeTitle();
     </script>
 
-    <!-- Chargement image de profil depuis config.json -->
+    <!-- chargement image config.json -->
     <script>
         fetch('config.json')
             .then(response => response.json())
@@ -81,7 +84,7 @@
             });
     </script>
 
-    <!-- brf script en fast tah le song pd  -->
+    <!-- click to enter -->
     <script>
         document.getElementById('intro').addEventListener('click', () => {
             document.getElementById('intro').style.display = 'none';
@@ -105,7 +108,7 @@
         });
     </script>
 
-    
+    <!-- texte animé QLF -->
     <script>
         const text = "QLF";
         const loopText = document.getElementById("loopText");
@@ -136,6 +139,7 @@
 
         animateText();
     </script>
+
 </body>
 
 </html>
